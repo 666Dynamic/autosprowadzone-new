@@ -2,6 +2,7 @@ import { ContactForm } from "@/components/contact-form"
 import { ShieldCheck, MapPin, Euro, Search, Truck, CheckCircle2, Sparkles, ChevronRight, Activity, MonitorCheck, Globe, Clock } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import type { Metadata } from "next"
+import Image from "next/image"
 
 export const metadata: Metadata = {
     title: "Weryfikacja Aut w Niemczech | autosprowadzone.pl",
@@ -66,10 +67,12 @@ export default function VerificationPage() {
                                 <div className="lg:w-2/5 p-8 md:p-10 relative flex flex-col justify-end min-h-[500px]">
                                     {/* Expert Image Background with mask */}
                                     <div className="absolute inset-0 z-0">
-                                        <img
+                                        <Image
                                             src="/expert-inspection.png"
                                             alt="Ekspert autosprowadzone.pl podczas inspekcji"
-                                            className="w-full h-full object-cover object-center opacity-90 mix-blend-multiply"
+                                            fill
+                                            className="object-cover object-center opacity-90 mix-blend-multiply"
+                                            sizes="(max-width: 768px) 100vw, 40vw"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-amber-600/80 via-transparent to-transparent" />
                                     </div>

@@ -29,7 +29,10 @@
 - ✅ Mobile-first approach w navbar, hero, calculator
 - ✅ Touch-friendly buttons i interakcje
 
-### 6. **Jakość kodu**
+### 6. **Jakość kodu i UX**
+- ✅ Zamieniono tagi `<img>` na `Next/Image` dla lepszej wydajności w `VerificationPage`
+- ✅ Zainstalowano i skonfigurowano `@tailwindcss/typography` dla czytelności bloga
+- ✅ Sprawdzono walidację formularzy kontaktowych na mobile
 - ✅ Brak console.log w produkcji
 - ✅ Brak debuggerów
 - ✅ TypeScript bez błędów
