@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://autosprowadzone.pl'),
   title: {
     default: "Auta z Niemiec - Aukcje B2B, Import, Weryfikacja | autosprowadzone.pl",
     template: "%s | autosprowadzone.pl",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "autosprowadzone.pl",
     images: [
       {
-        url: "/og-image.jpg", // Needs to be added eventually, placeholder for now or use a default if available
+        url: "/hero-bg.png",
         width: 1200,
         height: 630,
         alt: "Autosprowadzone.pl - Import aut z Niemiec",

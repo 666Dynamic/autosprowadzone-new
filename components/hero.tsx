@@ -33,6 +33,7 @@ export function Hero() {
                     autoPlay
                     muted
                     playsInline
+                    preload="none"
                     className="absolute inset-0 w-full h-full object-cover opacity-30 dark:opacity-20"
                 >
                     <source src="/13164895_3840_2160_30fps.mp4" type="video/mp4" />
