@@ -115,7 +115,7 @@ export function AboutAuctions() {
     ]
 
     return (
-        <section className="py-24 md:py-32 bg-[#0f172a] text-white relative overflow-hidden">
+        <section className="py-16 md:py-32 bg-[#0f172a] text-white relative overflow-hidden">
             {/* Ambient Background Glows - Optimized Layout & Performance */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
                 {/* Static blurred blobs instead of animated ones for better mobile perf */}
@@ -183,7 +183,7 @@ export function AboutAuctions() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-black uppercase tracking-widest text-[10px]">
                             <Sparkles className="w-3 h-3" /> Ekskluzywny Dostęp B2B
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-black leading-[1.1] text-white uppercase tracking-tighter text-balance">
+                        <h2 className="text-3xl md:text-5xl font-black leading-[1.1] text-white uppercase tracking-tighter">
                             Ekskluzywny <br />
                             <span className="text-primary italic">Dostęp B2B</span>
                         </h2>
@@ -235,17 +235,17 @@ export function AboutAuctions() {
                     </div>
 
                     {/* Right: Mockup with Live Animation */}
-                    <div className="lg:w-1/2 w-full">
+                    <div className="lg:w-1/2 w-full pt-8 lg:pt-0 pl-2 lg:pl-0"> {/* Added padding top/left for mobile floaters */}
                         <div className="relative group">
-                            {/* LIVE Badge */}
+                            {/* LIVE Badge - Mobile: Inside/Corner, Desktop: Floating Outside */}
                             {!isFinished && (
-                                <div className="absolute -top-4 -left-4 z-20 bg-red-600 text-white px-4 py-2 rounded-full font-black text-[10px] flex items-center gap-2 shadow-xl animate-pulse">
-                                    <span className="h-2 w-2 rounded-full bg-white animate-ping" />
+                                <div className="absolute top-0 left-0 md:-top-4 md:-left-4 z-20 bg-red-600 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-br-xl md:rounded-full font-black text-[9px] md:text-[10px] flex items-center gap-2 shadow-xl animate-pulse">
+                                    <span className="h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-white animate-ping" />
                                     ● LIVE BIDDING
                                 </div>
                             )}
 
-                            <Card className={`relative overflow-hidden border-2 ${status === "winning" ? "border-green-500 shadow-green-500/20" : "border-red-500 shadow-red-500/20"} ${isFinished ? "border-primary shadow-primary/40 scale-105" : ""} shadow-[0_20px_50px_rgba(0,0,0,0.25)] bg-white text-slate-800 rounded-[2.5rem] transition-all duration-500`}>
+                            <Card className={`relative overflow-hidden border-2 ${status === "winning" ? "border-green-500 shadow-green-500/20" : "border-red-500 shadow-red-500/20"} ${isFinished ? "border-primary shadow-primary/40 scale-[1.02]" : ""} shadow-[0_20px_50px_rgba(0,0,0,0.25)] bg-white text-slate-800 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-500`}>
                                 <CardContent className="p-0">
                                     {/* Header Mock */}
                                     <div className="bg-slate-950 text-slate-100 border-b border-slate-800 p-5 flex justify-between items-center">
