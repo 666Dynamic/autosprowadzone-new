@@ -3,37 +3,19 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useRef } from "react"
 
 export function Hero() {
-    const videoRef = useRef<HTMLVideoElement>(null)
-
-    useEffect(() => {
-        const video = videoRef.current
-        if (!video) return
-
-        const handleTimeUpdate = () => {
-            if (video.currentTime >= video.duration - 0.5) {
-                video.playbackRate = -1
-            } else if (video.currentTime <= 0.5 && video.playbackRate < 0) {
-                video.playbackRate = 1
-            }
-        }
-
-        // Check less frequently to save performance, or rely on timeupdate
-        video.addEventListener("timeupdate", handleTimeUpdate)
-        return () => video.removeEventListener("timeupdate", handleTimeUpdate)
-    }, [])
     return (
         <section className="relative overflow-hidden bg-background pt-24 md:pt-32 pb-24 lg:pt-40 lg:pb-32 min-h-[85vh] flex items-center">
-            {/* Background Video */}
+            {/* Background Video - Optimized loop instead of JS rewind */}
             <div className="absolute inset-0 z-0">
                 <video
-                    ref={videoRef}
                     autoPlay
+                    loop
                     muted
                     playsInline
                     preload="none"
+                    poster="/hero-bg.png"
                     className="absolute inset-0 w-full h-full object-cover opacity-30 dark:opacity-20"
                 >
                     <source src="/13164895_3840_2160_30fps.mp4" type="video/mp4" />

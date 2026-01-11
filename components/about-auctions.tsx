@@ -116,59 +116,64 @@ export function AboutAuctions() {
 
     return (
         <section className="py-24 md:py-32 bg-[#0f172a] text-white relative overflow-hidden">
-            {/* Ambient Background Glows */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] opacity-20 -translate-y-1/2 -translate-x-1/2" />
-                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] opacity-20" />
+            {/* Ambient Background Glows - Optimized Layout & Performance */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                {/* Static blurred blobs instead of animated ones for better mobile perf */}
+                <div className="absolute top-1/2 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/20 rounded-full blur-[80px] md:blur-[120px] opacity-20 -translate-y-1/2 -translate-x-1/2 transform-gpu" />
+                <div className="absolute bottom-0 right-0 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-blue-500/10 rounded-full blur-[80px] md:blur-[120px] opacity-20 transform-gpu" />
 
-                {/* Floating Particles as seen in screenshot */}
-                {[...Array(15)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-primary/40 rounded-full"
-                        animate={{
-                            y: [0, -100],
-                            opacity: [0, 1, 0],
-                        }}
-                        transition={{
-                            duration: Math.random() * 5 + 5,
-                            repeat: Infinity,
-                            delay: Math.random() * 5,
-                        }}
-                        style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                        }}
-                    />
-                ))}
-            </div>
-
-            {/* Victory Fireworks / Confetti */}
-            {isFinished && (
-                <div className="absolute inset-0 pointer-events-none z-50 overflow-hidden">
-                    {[...Array(50)].map((_, i) => (
+                {/* Floating Particles - Reduced count for mobile via hidden/block classes or JS logic */}
+                <div className="hidden md:block">
+                    {[...Array(8)].map((_, i) => (
                         <motion.div
                             key={i}
-                            initial={{ top: "50%", left: "50%", scale: 0, opacity: 1 }}
+                            className="absolute w-1 h-1 bg-primary/40 rounded-full"
                             animate={{
-                                top: [`50%`, `${Math.random() * 100}%`],
-                                left: [`50%`, `${Math.random() * 100}%`],
-                                scale: [0, 1, 0],
+                                y: [0, -100],
                                 opacity: [0, 1, 0],
-                                rotate: [0, 180],
                             }}
                             transition={{
-                                duration: Math.random() * 3 + 2,
+                                duration: Math.random() * 5 + 5,
                                 repeat: Infinity,
-                                repeatDelay: Math.random() * 2,
-                                ease: "easeOut",
+                                delay: Math.random() * 5,
                             }}
-                            className={`absolute w-1.5 h-1.5 rounded-full ${["bg-primary/60", "bg-yellow-400/60", "bg-white/60", "bg-blue-400/60"][Math.floor(Math.random() * 4)]
-                                } blur-[1px] shadow-[0_0_5px_rgba(255,255,255,0.4)]`}
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                            }}
                         />
                     ))}
                 </div>
-            )}
+            </div>
+
+            {/* Victory Fireworks / Confetti - Optimized */}
+            <AnimatePresence>
+                {isFinished && (
+                    <div className="absolute inset-0 pointer-events-none z-50 overflow-hidden">
+                        {[...Array(20)].map((_, i) => ( // Reduced from 50 to 20
+                            <motion.div
+                                key={i}
+                                initial={{ top: "50%", left: "50%", scale: 0, opacity: 1 }}
+                                animate={{
+                                    top: [`50%`, `${Math.random() * 100}%`],
+                                    left: [`50%`, `${Math.random() * 100}%`],
+                                    scale: [0, 1, 0],
+                                    opacity: [0, 1, 0],
+                                    rotate: [0, 180],
+                                }}
+                                transition={{
+                                    duration: Math.random() * 2 + 1.5,
+                                    repeat: Infinity,
+                                    repeatDelay: Math.random() * 2,
+                                    ease: "easeOut",
+                                }}
+                                className={`absolute w-1.5 h-1.5 rounded-full ${["bg-primary/80", "bg-yellow-400/80", "bg-white/80"][Math.floor(Math.random() * 3)]
+                                    } blur-[0.5px]`} // Reduced blur radius
+                            />
+                        ))}
+                    </div>
+                )}
+            </AnimatePresence>
 
             <div className="container mx-auto px-4 md:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 items-center">

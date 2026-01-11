@@ -98,10 +98,18 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    width: 100%;
+    overscroll-behavior-y: none;
+    /* Prevents bounce effect on Mac/iOS */
   }
 
   /* Global cursor and transition utilities */

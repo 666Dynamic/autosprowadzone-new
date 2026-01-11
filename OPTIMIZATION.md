@@ -44,6 +44,12 @@
 - ✅ Lazy loading komponentów
 - ✅ Optymalizacja fontów (Geist)
 
+### 8. **Mobile "Jank" Fixes (2ga tura)**
+- ✅ Zoptymalizowano `about-auctions.tsx` (mniej animacji JS na mobile, lżejsze efekty tła)
+- ✅ Usunięto kosztowny efekt JS wideo w Hero, zastąpiono natywną pętlą i dodano `poster`
+- ✅ Dodano globalne `overflow-x: hidden` i `overscroll-behavior-y: none`
+- ✅ Optymalizacja renderowania tekstu na iOS
+
 ## Status buildu:
 ```
 ✓ Compiled successfully
